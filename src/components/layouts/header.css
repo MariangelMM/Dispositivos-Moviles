@@ -1,17 +1,14 @@
 .ant-layout-header {
-  height: 88px !important;
-  overflow: hidden;
+  height: 120px !important;
   width: 100%;
   background-color: #f7f8fd !important;
-  z-index: 16;
+}
+.user_section {
+  margin: 20px 50px 0px 50px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-
-.user_section {
-  margin: 15px 40px 0px 0px;
-}
-
 .avatar-item:hover {
   cursor: pointer;
 }
@@ -19,8 +16,8 @@
   font-size: 18px;
   background: #002e6d;
 }
-.btn-close {
-  background: rgb(209, 72, 72) !important;
-  color: #fff !important;
-  border-radius: 10px !important;
+
+.ant-avatar.ant-avatar-icon:hover {
+  font-size: 20px;
+  background: #00429e;
 }
