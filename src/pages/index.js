@@ -1,0 +1,1 @@
+export { default as PeticionesPage } from "./Peticiones/PeticionesPage";
