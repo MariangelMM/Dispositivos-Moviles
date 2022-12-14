@@ -1,26 +1,36 @@
 import React from "react";
 import { Descriptions } from "antd";
+import {  useSelector } from "react-redux";
 
-const DescriptionProduct = ({ item }) => {
+
+
+
+const DescriptionProduct = () => {
+
+//llamando al estado para obtener la lista de peticiones
+const product = useSelector((state) => state.peticiones.detailProduct[0]);
+
+console.log("rrr", product)
+
   return (
     <Descriptions layout="horizontal" column={1}>
-      <Descriptions.Item label="Marca">{item.brand}</Descriptions.Item>
-      <Descriptions.Item label="Modelo">{item.model}</Descriptions.Item>
-      <Descriptions.Item label="Precio">{item.price}</Descriptions.Item>
-      <Descriptions.Item label="CPU">{item.cpu}</Descriptions.Item>
-      <Descriptions.Item label="RAM">{item.ram}</Descriptions.Item>
-      <Descriptions.Item label="Sistema Operativo">{item.so}</Descriptions.Item>
+      <Descriptions.Item label="Marca">{product.brand}</Descriptions.Item>
+      <Descriptions.Item label="Modelo">{product.model}</Descriptions.Item>
+      <Descriptions.Item label="Precio">{product.price}</Descriptions.Item>
+      <Descriptions.Item label="CPU">{product.cpu}</Descriptions.Item>
+      <Descriptions.Item label="RAM">{product.ram}</Descriptions.Item>
+      <Descriptions.Item label="Sistema Operativo">{product.so}</Descriptions.Item>
       <Descriptions.Item label="Resolucion de pantalla">
-        {item.displayResolution}
+        {product.displayResolution}
       </Descriptions.Item>
-      <Descriptions.Item label="Bateria">{item.battery}</Descriptions.Item>
+      <Descriptions.Item label="Bateria">{product.battery}</Descriptions.Item>
       <Descriptions.Item label="Camaras">
-        {item.primaryCamera} {item.secondaryCmera}
+        {product.primaryCamera} {product.secondaryCmera}
       </Descriptions.Item>
       <Descriptions.Item label="Dimensiones">
-        {item.dimentions}
+        {product.dimentions}
       </Descriptions.Item>
-      <Descriptions.Item label="Peso">{item.weight}</Descriptions.Item>
+      <Descriptions.Item label="Peso">{product.weight}</Descriptions.Item>
     </Descriptions>
   );
 };

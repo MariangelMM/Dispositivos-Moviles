@@ -1,8 +1,9 @@
-import { GET_LIST_PRODUCTS, GET_LIST_PRODUCTS_SUCCESS } from "../types/productType"
+import { GET_LIST_PRODUCTS, GET_LIST_PRODUCTS_SUCCESS, GET_DETAIL_PRODUCT, GET_DETAIL_PRODUCT_SUCCESS } from "../types/productType"
 
 
    const initialState = {
     products: [ ],
+    detailProduct: {},
     error: null
 }
   
@@ -11,6 +12,7 @@ import { GET_LIST_PRODUCTS, GET_LIST_PRODUCTS_SUCCESS } from "../types/productTy
     switch (action.type) {
   
       case GET_LIST_PRODUCTS:
+      case GET_DETAIL_PRODUCT:
         return {
           ...state,
         };
@@ -20,6 +22,12 @@ import { GET_LIST_PRODUCTS, GET_LIST_PRODUCTS_SUCCESS } from "../types/productTy
           ...state,
           products: action.payload
         };
+        
+          case GET_DETAIL_PRODUCT_SUCCESS:
+          return {
+            ...state,
+            detailProduct: action.payload
+          };
   
       default:
         return state;

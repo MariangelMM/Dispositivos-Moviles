@@ -4,7 +4,7 @@ import "./listProductPage.css"
 
 import CardItem from "../../components/ItemProduct/Item";
 import ImageProduct from "../../components/ImageProduct/ImageProduct";
-import { listarCasosDePruebaAction } from "../../stateManagement/actions/peticionesAction";
+import { listProductAction } from "../../stateManagement/actions/peticionesAction";
 
 
 import { Input, Card } from "antd";
@@ -20,7 +20,7 @@ export default function ListProductPage() {
   const dispatch = useDispatch();
 
   const getProductsList = (idPeticion) => {
-    dispatch(listarCasosDePruebaAction(idPeticion));
+    dispatch(listProductAction(idPeticion));
   }
 
   useEffect(() => {
