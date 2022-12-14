@@ -21,9 +21,13 @@ const MainRoutes = () => (
                   <Redirect to="/products" />
                 </Route>
                 <Route
-                  path={main.peticiones.path}
+                  path={main.products.path}
                   exact
-                  component={main.peticiones.component}
+                  component={main.products.component}
+                />
+                <Route
+                  path={main.detailProduct.path}
+                  component={main.detailProduct.component}
                 />
             
                 <Route
