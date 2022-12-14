@@ -1,16 +1,17 @@
 import React from "react";
-import { Descriptions} from "antd";
+import DescriptionProduct from "../../components/DescriptionProduct/DescriptionProduct";
+import ImageProduct from "../../components/ImageProduct/ImageProduct";
+import "./DetailProduct.css";
 
-export default function DetailProduct() {  
-
+export default function DetailProduct() {
   return (
-    <Descriptions layout="horizontal" column={1}>
-    <Descriptions.Item label="Nombre producto">
-      dataPeticion.nomPeticion
-    </Descriptions.Item>
-    <Descriptions.Item label="id Petición">
-      dataPeticion.key
-    </Descriptions.Item>
-  </Descriptions>
+    <>
+      <a href="/products">Volver a productos</a>
+      <p>Detalle Producto</p>
+      <div className="container-detailProduct">
+        <ImageProduct />
+        <DescriptionProduct />
+      </div>
+    </>
   );
 }

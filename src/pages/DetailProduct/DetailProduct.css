@@ -1,0 +1,6 @@
+.container-detailProduct{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    gap: 20px;
+}

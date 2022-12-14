@@ -1,7 +1,8 @@
 import React from "react";
 
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
-import { MainHeader, Footer } from "../components";
+import MainHeader  from "../components/Header/Header";
+import MainFooter from "../components/Footer/Footer";
 import { main } from "./routes";
 import { Layout } from "antd";
 
@@ -37,7 +38,7 @@ const MainRoutes = () => (
               </Switch>
             </div>
           </Content>
-          <Footer />
+          <MainFooter />
         </Layout>
       </Layout>
     </BrowserRouter>

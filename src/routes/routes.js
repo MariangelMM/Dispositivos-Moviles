@@ -1,8 +1,6 @@
 import MainRoutes from "./mainRoutes";
 
-import { ListProductPage, DetailProduct } from "../pages";
-
-import { PageNotFound } from "../components";
+import { ListProductPage, DetailProduct, PageNotFound } from "../pages";
 
 
 export const main = {
@@ -10,5 +8,5 @@ export const main = {
     component: MainRoutes,
     error404: { path:'', component: PageNotFound }, 
     products: { path: '/products', component:  ListProductPage },
-detailProduct: { path: '/detailproduct', component: DetailProduct }
+    detailProduct: { path: '/detailproduct', component: DetailProduct }
 }

@@ -1,8 +1,9 @@
 import React from "react";
-import { ListProduct } from "./components";
 import { useSelector } from "react-redux";
 import "./listProductPage.css"
 import { Input } from 'antd';
+import { Card } from "antd";
+import CardItem from "../../components/ItemProduct/Item";
 
 const { Search } = Input;
 
@@ -21,8 +22,17 @@ export default function ListProductPage() {
       </div>
 
       <div className="container-listProduct">
-      <ListProduct listData={listData} />
+      {listData.map((item) => {
+        return (
+          <Card title="Card title" bordered={false} style={{ width: 300 }}>
+            <CardItem item={item} />
+          </Card>
+        );
+      })}
       </div>
     </section>
   );
 }
+
+
+

@@ -2,7 +2,7 @@ import React from "react";
 import { Layout,  Avatar, Badge } from "antd";
 import { QqOutlined } from "@ant-design/icons";
 import "./header.css";
-import logo from "../image/logo.png";
+import logo from "./image/logo.png";
 
 const { Header } = Layout;
 
