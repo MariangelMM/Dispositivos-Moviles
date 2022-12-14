@@ -1,6 +1,6 @@
 .container-detailProduct{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
     margin: 30px;
-    gap: 20px;
 }

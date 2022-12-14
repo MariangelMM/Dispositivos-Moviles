@@ -1,28 +1,8 @@
+import { GET_LIST_PRODUCTS, GET_LIST_PRODUCTS_SUCCESS } from "../types/productType"
+
 
    const initialState = {
-    peticiones: [
-        {
-            key: 1,
-            nomProduct: `Nombre de la Petición 1`,
-            numberPrueba : 1,
-        },
-        {
-          key: 2,
-          nomProduct: `Nombre de la Petición 1`,
-          numberPrueba : 1,
-      },
-      {
-        key: 3,
-        nomProduct: `Nombre de la Petición 1`,
-        numberPrueba : 1,
-    },
-    {
-      key: 4,
-      nomProduct: `Nombre de la Petición 1`,
-      numberPrueba : 1,
-  },
-    ],
-    loading: false,
+    products: [ ],
     error: null
 }
   
@@ -30,11 +10,15 @@
   export default function (state = initialState, action) {
     switch (action.type) {
   
-      case "":
+      case GET_LIST_PRODUCTS:
         return {
           ...state,
-          loading: false,
-          peticiones: [...state.peticiones, action.payload]
+        };
+
+      case GET_LIST_PRODUCTS_SUCCESS:
+        return {
+          ...state,
+          products: action.payload
         };
   
       default:

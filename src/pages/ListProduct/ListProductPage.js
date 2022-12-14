@@ -1,35 +1,31 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./listProductPage.css"
-import { Input } from 'antd';
-import { Card } from "antd";
-import CardItem from "../../components/ItemProduct/Item";
-import { get } from "../../api/apiUrl";
 
+import CardItem from "../../components/ItemProduct/Item";
+import ImageProduct from "../../components/ImageProduct/ImageProduct";
+import { listarCasosDePruebaAction } from "../../stateManagement/actions/peticionesAction";
+
+
+import { Input, Card } from "antd";
 const { Search } = Input;
 
 
 export default function ListProductPage() {
   //llamando al estado para obtener la lista de peticiones
-  const listData = useSelector((state) => state.peticiones.peticiones);
+  const listData = useSelector((state) => state.peticiones.products);
+
   const onSearch = (value) => console.log(value);
 
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
 
-  const getData = async () => {
-    try {
-      const data = await get();
-      console.log("data", data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const getProductsList = (idPeticion) => {
+    dispatch(listarCasosDePruebaAction(idPeticion));
+  }
 
-  useEffect(()=>{
-    getData()
-  })
-
-
+  useEffect(() => {
+    getProductsList();
+  });
 
   return (
     <section>
@@ -41,7 +37,9 @@ export default function ListProductPage() {
       <div className="container-listProduct">
       {listData.map((item) => {
         return (
-          <Card key={item.id} title="Card title" bordered={false} style={{ width: 300 }}>
+          <Card key={item.id}  bordered={false} style={{ width: 300 }}>
+            <ImageProduct item={item.imgUrl} />
+            <hr/>
             <CardItem item={item} />
           </Card>
         );

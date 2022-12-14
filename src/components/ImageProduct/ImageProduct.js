@@ -1,9 +1,12 @@
 import React from "react";
+import "./ImageProduct.css"
 
-const ImageProduct = () => {  
+const ImageProduct = ({item}) => {  
 
   return (
-   <p>Imagen</p>
+    <div className="container-imgProduct">
+    <img className="imgProduct" src={item} alt=""/>
+    </div>
   );
 }
 
