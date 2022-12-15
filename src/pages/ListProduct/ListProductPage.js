@@ -1,27 +1,25 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./listProductPage.css"
+import "./listProductPage.css";
 
 import CardItem from "../../components/ItemProduct/Item";
+import SearchProduct from "../../components/SearchProduct/SearchProduct";
 import ImageProduct from "../../components/ImageProduct/ImageProduct";
 import { listProductAction } from "../../stateManagement/actions/peticionesAction";
 
-
-import { Input, Card } from "antd";
-const { Search } = Input;
-
+import { Card } from "antd";
 
 export default function ListProductPage() {
-  //llamando al estado para obtener la lista de peticiones
   const listData = useSelector((state) => state.peticiones.products);
-
-  const onSearch = (value) => console.log(value);
+  const listDataSearch = useSelector(
+    (state) => state.peticiones.listProductSearch
+  );
 
   const dispatch = useDispatch();
 
-  const getProductsList = (idPeticion) => {
-    dispatch(listProductAction(idPeticion));
-  }
+  const getProductsList = () => {
+    dispatch(listProductAction());
+  };
 
   useEffect(() => {
     getProductsList();
@@ -30,24 +28,35 @@ export default function ListProductPage() {
   return (
     <section>
       <div className="container-headerListProduct">
-      <h1 className="title-listProduct">Listado de productos</h1>
-      <Search placeholder="Buscar producto" onSearch={onSearch} style={{ width: 200 }} />
+        <h1 className="title-listProduct">Listado de productos</h1>
+        <SearchProduct />
       </div>
 
-      <div className="container-listProduct">
-      {listData.map((item) => {
-        return (
-          <Card key={item.id}  bordered={false} style={{ width: 300 }}>
-            <ImageProduct product={item.imgUrl} />
-            <hr/>
-            <CardItem item={item} />
-          </Card>
-        );
-      })}
-      </div>
+      {listDataSearch.length < 1 ? (
+        <div className="container-listProduct">
+          {listData.map((item) => {
+            return (
+              <Card key={item.id} bordered={false} style={{ width: 300 }}>
+                <ImageProduct product={item.imgUrl} />
+                <hr />
+                <CardItem item={item} />
+              </Card>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="container-listProduct">
+          {listDataSearch.map((item) => {
+            return (
+              <Card key={item.id} bordered={false} style={{ width: 300 }}>
+                <ImageProduct product={item.imgUrl} />
+                <hr />
+                <CardItem item={item} />
+              </Card>
+            );
+          })}
+        </div>
+      )}
     </section>
   );
 }
-
-
-

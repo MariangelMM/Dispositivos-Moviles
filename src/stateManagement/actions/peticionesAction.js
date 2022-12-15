@@ -1,26 +1,35 @@
-import { getListProduct, getDetailProduct, postAddProduct } from "../../api/apiUrl";
+import {
+  getListProduct,
+  getDetailProduct,
+  postAddProduct,
+} from "../../api/apiUrl";
 import { message } from "antd";
 import {
   GET_LIST_PRODUCTS,
   GET_LIST_PRODUCTS_SUCCESS,
+  SET_LIST_PRODUCTS,
+  SET_LIST_PRODUCTS_SUCCESS,
   GET_DETAIL_PRODUCT,
   GET_DETAIL_PRODUCT_SUCCESS,
   POST_ADD_PRODUCT,
   POST_ADD_PRODUCT_SUCCESS,
 } from "../types/productType";
 
-export function listProductAction(idPeticion) {
-  return async (dispatch) => {
-    dispatch(listProduct());
+export function listProductAction() {
 
-    try {
-      const response = await getListProduct();
-      dispatch(listProductSuccess(response));
-    } catch (error) {
-      message.error("Error al tratar de obtener lista de productos!");
-    }
-  };
+    return async (dispatch) => {
+      dispatch(listProduct());
+
+      try {
+        const response = await getListProduct();
+        dispatch(listProductSuccess(response));
+       
+      } catch (error) {
+        message.error("Error al tratar de obtener lista de productos!");
+      }
+    };
 }
+
 
 const listProduct = () => ({
   type: GET_LIST_PRODUCTS,
@@ -30,6 +39,33 @@ const listProductSuccess = (products) => ({
   type: GET_LIST_PRODUCTS_SUCCESS,
   payload: products,
 });
+
+
+
+export function setListProductAction(filterSearch) {
+
+  return async (dispatch) => {
+    dispatch(setlistProduct());
+
+    try {
+       dispatch(setlistProductSuccess(filterSearch));
+     
+    } catch (error) {
+      message.error("Error al tratar de obtener lista de productos!");
+    }
+  }
+}
+
+const setlistProduct = () => ({
+  type: SET_LIST_PRODUCTS,
+});
+
+const setlistProductSuccess = (filterSearch) => ({
+  type: SET_LIST_PRODUCTS_SUCCESS,
+  payload: filterSearch,
+});
+
+
 
 export function detailProductAction(product) {
   return async (dispatch) => {
@@ -53,16 +89,17 @@ const detailProductSuccess = (product) => ({
   payload: product,
 });
 
-
 export function addProductAction(dataProduct) {
   return async (dispatch) => {
     dispatch(addProduct());
 
-    const dataProduct = [{
-      id: 1,
-      codeColor: 12,
-      codeStorage: 22,
-    }];
+    const dataProduct = [
+      {
+        id: 1,
+        codeColor: 12,
+        codeStorage: 22,
+      },
+    ];
     dispatch(addProductSuccess(dataProduct));
 
     // try {
@@ -79,6 +116,6 @@ const addProduct = () => ({
 });
 
 const addProductSuccess = (product) => ({
-    type: POST_ADD_PRODUCT_SUCCESS,
+  type: POST_ADD_PRODUCT_SUCCESS,
   payload: product,
 });

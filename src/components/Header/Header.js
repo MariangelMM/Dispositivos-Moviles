@@ -10,8 +10,6 @@ const { Header } = Layout;
 export default function MainHeader() {
 
   const productCard = useSelector((state) => state.peticiones.productCard);
-  console.log("sss", productCard);
-
 
   return (
     <Header style={{ padding: 0 }}>
