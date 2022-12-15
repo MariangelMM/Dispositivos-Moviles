@@ -20,6 +20,6 @@ export const postAddProduct = (data) => {
       accept: 'application/json',
     }
 	};
-  return axios.post( `${uri}/product/cart`, data, config ).then( response => response.data );
+  return axios.post( `${uri}/cart/`, data, config ).then( response => response.data );
 
 }

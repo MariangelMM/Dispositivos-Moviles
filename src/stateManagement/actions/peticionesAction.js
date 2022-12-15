@@ -93,21 +93,12 @@ export function addProductAction(dataProduct) {
   return async (dispatch) => {
     dispatch(addProduct());
 
-    const product = [
-      {
-        id: 1,
-        codeColor: 12,
-        codeStorage: 22,
-      },
-    ];
-
-    dispatch(addProductSuccess(product));
-    // try {
-    //   const response = await postAddProduct(dataProduct);
-    //   dispatch(addProductSuccess(response));
-    // } catch (error) {
-    //   message.error("Seleccione color y almacenamiento");
-    // }
+    try {
+      const response = await postAddProduct(dataProduct);
+      dispatch(addProductSuccess(response));
+    } catch (error) {
+      message.error("Seleccione color y almacenamiento");
+    }
   };
 }
 

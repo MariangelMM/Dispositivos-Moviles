@@ -15,7 +15,8 @@ const initialState = {
   detailProduct: {},
   productCard: [],
   productSearch: [],
-  listProductSearch: []
+  listProductSearch: [],
+  totalProduct: [],
 };
 
 // eslint-disable-next-line
@@ -51,7 +52,7 @@ export default function (state = initialState, action) {
     case POST_ADD_PRODUCT_SUCCESS:
       return {
         ...state,
-        productCard:  [...state.productCard, action.payload]
+        productCard:  [...state.productCard, action.payload],
       };
 
     default:

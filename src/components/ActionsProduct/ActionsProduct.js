@@ -28,13 +28,11 @@ const ActionsProduct = ({ product, idProduct }) => {
     if (product.storage.length === 1) {
       setSelectStorage(product.storages[0].code);
     }
-    const dataProduct = [
-      {
-        id: idProduct,
-        codeColor: selectColor,
-        codeStorage: selectStorage,
-      },
-    ];
+    const dataProduct = {
+      id: idProduct,
+      codeColor: selectColor,
+      codeStorage: selectStorage,
+    };
 
     saveData(dataProduct);
   };
@@ -44,7 +42,8 @@ const ActionsProduct = ({ product, idProduct }) => {
     let totalCart = viewStorage ? JSON.parse(viewStorage) : [...productCard];
     totalCart.push(dataProduct);
     localStorage.setItem("totalCart", JSON.stringify(totalCart));
-    dispatch(addProductAction(totalCart));
+    
+    dispatch(addProductAction(dataProduct));
   };
   return (
     <>
