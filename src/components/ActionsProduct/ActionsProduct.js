@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Card, Select, Button } from "antd";
+import { addProductAction } from "../../stateManagement/actions/peticionesAction";
 const { Option } = Select;
-const ActionsProduct = ({ product }) => {
+
+const ActionsProduct = ({ product, idProduct }) => {
+  const dispatch = useDispatch();
+
   const [selectColor, setSelectColor] = useState();
   const [selectStorage, setSelectStorage] = useState();
 
@@ -16,7 +21,19 @@ const ActionsProduct = ({ product }) => {
   const onSumit = (e) => {
     e.preventDefault();
 
-    console.log("codigo color", selectColor, "almacenamiento", selectStorage);
+    if (product.color.length === 1) {
+      setSelectColor(product.color[0].code);
+    }
+    if (product.storage.length === 1) {
+      setSelectStorage(product.storages[0].code);
+    }
+    const dataProduct = {
+      id: idProduct,
+      codeColor: selectColor,
+      codeStorage: selectStorage,
+    };
+
+    dispatch(addProductAction(dataProduct));
   };
 
   return (
