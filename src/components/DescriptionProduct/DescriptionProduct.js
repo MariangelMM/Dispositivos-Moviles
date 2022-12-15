@@ -1,32 +1,58 @@
 import React from "react";
-import { Descriptions } from "antd";
-import "./DescriptionProduct.css"
+import "./DescriptionProduct.css";
+import { Col, Row } from "antd";
 
-
-const DescriptionProduct = ({product}) => {
-
-
-
+const DescriptionProduct = ({ product }) => {
   return (
-    <Descriptions layout="horizontal" column={2} className="container-description-product">
-      <Descriptions.Item label="Marca">{product.brand}</Descriptions.Item>
-      <Descriptions.Item label="Modelo">{product.model}</Descriptions.Item>
-      <Descriptions.Item label="Precio">{product.price}</Descriptions.Item>
-      <Descriptions.Item label="CPU">{product.cpu}</Descriptions.Item>
-      <Descriptions.Item label="RAM">{product.ram}</Descriptions.Item>
-      <Descriptions.Item label="Sistema Operativo">{product.so}</Descriptions.Item>
-      <Descriptions.Item label="Resolucion de pantalla">
-        {product.displayResolution}
-      </Descriptions.Item>
-      <Descriptions.Item label="Bateria">{product.battery}</Descriptions.Item>
-      <Descriptions.Item label="Camaras">
-        {product.primaryCamera} {product.secondaryCmera}
-      </Descriptions.Item>
-      <Descriptions.Item label="Dimensiones">
-        {product.dimentions}
-      </Descriptions.Item>
-      <Descriptions.Item label="Peso">{product.weight}</Descriptions.Item>
-    </Descriptions>
+    <div className="container-description-product">
+      <Row gutter={16}>
+        <Col className="gutter-row" span={8}>
+          <div>Marca: {product.brand}</div>
+        </Col>
+        <Col className="gutter-row" span={8}>
+          <div>Modelo: {product.model}</div>
+        </Col>
+        <Col className="gutter-row" span={8}>
+          <div>Precio: {product.price}</div>
+        </Col>
+      </Row>
+      <br/>
+      <Row gutter={16}>
+        <Col className="gutter-row" span={8}>
+          <div>CPU: {product.cpu}</div>
+        </Col>
+        <Col className="gutter-row" span={8}>
+          <div>CPU: {product.cpu}</div>
+        </Col>
+        <Col className="gutter-row" span={8}>
+          <div>RAM: {product.ram}</div>
+        </Col>
+      </Row>
+      <br/>
+      <Row gutter={16}>
+        <Col className="gutter-row" span={8}>
+          <div>Sistema Operativo: {product.so}</div>
+        </Col>
+        <Col className="gutter-row" span={8}>
+          <div>Bateria: {product.battery}</div>
+        </Col>
+        <Col className="gutter-row" span={8}>
+          <div>
+            Camaras:
+            {product.primaryCamera} {product.secondaryCmera}
+          </div>
+        </Col>
+      </Row>
+      <br/>
+      <Row gutter={16}>
+        <Col className="gutter-row" span={8}>
+          <div>Dimensiones: {product.dimentions}</div>
+        </Col>
+        <Col className="gutter-row" span={8}>
+          <div>Peso: {product.weight}</div>
+        </Col>
+      </Row>
+    </div>
   );
 };
 

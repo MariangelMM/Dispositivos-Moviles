@@ -8,14 +8,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
   flex-wrap: wrap;
 }
 
 .container-actions-product-select {
   margin-bottom: 26px !important;
   margin-right: 12px;
-  width: 230px;
+  width: 210px;
 }
 
 .container-actions-product button{

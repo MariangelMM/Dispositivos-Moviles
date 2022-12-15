@@ -98,7 +98,7 @@ const ActionsProduct = ({ product, idProduct }) => {
             </Select>
           </div>
         </div>
-        <Button onClick={(e) => onSumit(e)}>Añadir</Button>
+        <Button type="primary" onClick={(e) => onSumit(e)}>Añadir</Button>
       </section>
     </>
   );

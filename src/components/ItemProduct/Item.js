@@ -23,7 +23,7 @@ const CardItem = ({ item }) => {
         <span>Precio: ${item.price}</span>
 
         <Link to="/detailProduct" onClick={() => getDetailProduct(item)}>
-          Ver detalle <RightOutlined />
+          Ver detalle <RightOutlined/>
         </Link>
       </p>
       </Link>

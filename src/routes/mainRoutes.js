@@ -13,6 +13,7 @@ const MainRoutes = () => (
     <BrowserRouter>
       <Layout /*   */>
         <MainHeader />
+       
         <Layout>
           <Content className="content-layout">
             
@@ -46,3 +47,5 @@ const MainRoutes = () => (
 );
 
 export default MainRoutes;
+
+
