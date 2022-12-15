@@ -38,7 +38,7 @@ export default function ListProductPage() {
       {listData.map((item) => {
         return (
           <Card key={item.id}  bordered={false} style={{ width: 300 }}>
-            <ImageProduct item={item.imgUrl} />
+            <ImageProduct product={item.imgUrl} />
             <hr/>
             <CardItem item={item} />
           </Card>

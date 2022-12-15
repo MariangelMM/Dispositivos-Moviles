@@ -1,52 +1,31 @@
 import React from "react";
 import DescriptionProduct from "../../components/DescriptionProduct/DescriptionProduct";
 import ImageProduct from "../../components/ImageProduct/ImageProduct";
+import ActionsProduct from "../../components/ActionsProduct/ActionsProduct";
 import "./DetailProduct.css";
-
-
+import { useSelector } from "react-redux";
 
 export default function DetailProduct() {
+  //llamando al estado para obtener la lista de peticiones
+  const product = useSelector((state) => state.peticiones.detailProduct[0]);
 
-const item =  {
-  "id": "1",
-  "imgUrl": "https://images.vexels.com/media/users/3/208382/isolated/preview/f25868c7977e679c46ccf94970b97ed9-celular-antigo-plana-by-vexels.png",
-  "brand": "Acer",
-  "model": "Liquid 1",
-  "price": "16",
-  "cpu": "",
-  "ram": "",
-  "so": "",
-  "displayResolution": "",
-  "battery": "",
-  "dimentions": "",
-  "weight": "",
-  "primaryCamera": "",
-  "secondaryCmera": "",
-  "options": {
-    "color": [
-      {
-        "code": "1",
-        "name": "black"
-      }
-    ],
-    "storage": [
-      {
-        "code": "1",
-        "name": "16GB"
-      }
-    ]
-  }
-}
 
 
   return (
     <>
-      <a href="/products">Volver a productos</a>
-      <p>Detalle Producto</p>
-      <div className="container-detailProduct">
-        <ImageProduct item={item.imgUrl}/>
-        <DescriptionProduct item={item}/>
-      </div>
+      {product ? (
+        <>
+          <a href="/products">Volver a productos</a>
+          <p>Detalle Producto</p>
+          <div className="container-detailProduct">
+            <ImageProduct product={product.imgUrl}/>
+            <DescriptionProduct product={product}/>
+            <ActionsProduct product={product.options} />
+          </div>
+        </>
+      ) : (
+        <p>Cargando Producto</p>
+      )}
     </>
   );
 }

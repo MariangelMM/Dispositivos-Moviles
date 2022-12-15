@@ -1,16 +1,11 @@
 import React from "react";
 import { Descriptions } from "antd";
-import {  useSelector } from "react-redux";
 
 
 
+const DescriptionProduct = ({product}) => {
 
-const DescriptionProduct = () => {
 
-//llamando al estado para obtener la lista de peticiones
-const product = useSelector((state) => state.peticiones.detailProduct[0]);
-
-console.log("rrr", product)
 
   return (
     <Descriptions layout="horizontal" column={1}>
