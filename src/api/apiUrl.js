@@ -15,9 +15,10 @@ export const getDetailProduct = (id) => {
 
 export const postAddProduct = (data) => {  
   const config = {
-		headers: {
-			'Content-Type': 'application/json',
-		},
+    headers: {
+      'Content-Type': 'application/json',
+      accept: 'application/json',
+    }
 	};
   return axios.post( `${uri}/product/cart`, data, config ).then( response => response.data );
 

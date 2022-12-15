@@ -93,7 +93,7 @@ export function addProductAction(dataProduct) {
   return async (dispatch) => {
     dispatch(addProduct());
 
-    const dataProduct = [
+    const product = [
       {
         id: 1,
         codeColor: 12,
@@ -101,8 +101,7 @@ export function addProductAction(dataProduct) {
       },
     ];
 
-    dispatch(addProductSuccess(dataProduct));
-
+    dispatch(addProductSuccess(product));
     // try {
     //   const response = await postAddProduct(dataProduct);
     //   dispatch(addProductSuccess(response));
