@@ -19,7 +19,7 @@
 En la página principal, se visualizará la lista de los productos. 
 En esta página, se mostrarán todos los elementos que nos devuelve la petición del API
 - Permitirá el filtrado del contenido en función del criterio de busqueda que el usuario
-introduzca (Funciona al segundo intento tiene un bugsito 😁 por mejorar)
+introduzca.
 - Al seleccionar un producto, deberá navegar a los detalles del mismo.
 - Se mostrarán un maximo de cuatro elementos por fila, y que sea adaptativo segun la resolución.
 

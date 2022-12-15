@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setListProductAction } from "../../stateManagement/actions/peticionesAction";
 import { Input, Button } from "antd";
@@ -23,11 +23,14 @@ const SearchProduct = () => {
     } else {
       setFilterSearch(productList);
     }
+  };
 
+
+  useEffect(()=>{
     if (filterSearch) {
       dispatch(setListProductAction(filterSearch));
     }
-  };
+  }, [filterSearch, dispatch])
 
   return (
     <div className="container-search-producto">
