@@ -36,7 +36,7 @@ export default function ListProductPage() {
         <div className="container-listProduct">
           {listData.map((item) => {
             return (
-              <Card key={item.id} bordered={false} style={{ width: 300 }}>
+              <Card hoverable key={item.id} bordered={false} style={{ width: 300 }}>
                 <ImageProduct product={item.imgUrl} />
                 <hr />
                 <CardItem item={item} />
@@ -48,7 +48,7 @@ export default function ListProductPage() {
         <div className="container-listProduct">
           {listDataSearch.map((item) => {
             return (
-              <Card key={item.id} bordered={false} style={{ width: 300 }}>
+              <Card hoverable key={item.id} bordered={false} style={{ width: 300 }} className="container-listProduct-card">
                 <ImageProduct product={item.imgUrl} />
                 <hr />
                 <CardItem item={item} />

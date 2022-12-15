@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setListProductAction } from "../../stateManagement/actions/peticionesAction";
 import { Input, Button } from "antd";
+import "./SearchProduct.css";
 
 const SearchProduct = () => {
   const dispatch = useDispatch();
@@ -10,8 +11,8 @@ const SearchProduct = () => {
   const [searchInput, setSearchInput] = useState("");
 
   const onSearch = (e) => {
-	// e.preventDefault();
-  
+    // e.preventDefault();
+
     if (searchInput !== "") {
       const data = productList.filter(
         (ele) =>
@@ -29,15 +30,15 @@ const SearchProduct = () => {
   };
 
   return (
-    <>
+    <div className="container-search-producto">
       <Input
-	  maxLength={16}
-	  style={{ width: '300px' }}
+        maxLength={16}
+        className="input-search"
         placeholder="Buscar su producto"
         onChange={(e) => setSearchInput(e.target.value)}
       />
       <Button onClick={(e) => onSearch(e)}>Buscar </Button>
-    </>
+    </div>
   );
 };
 

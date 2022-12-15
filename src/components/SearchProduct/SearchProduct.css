@@ -1,0 +1,14 @@
+.container-search-producto .input-search{
+    width: 300px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .container-search-producto .input-search{
+        width: 280px;
+    }
+  
+  }

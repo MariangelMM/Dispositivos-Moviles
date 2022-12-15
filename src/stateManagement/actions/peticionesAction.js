@@ -100,6 +100,7 @@ export function addProductAction(dataProduct) {
         codeStorage: 22,
       },
     ];
+
     dispatch(addProductSuccess(dataProduct));
 
     // try {

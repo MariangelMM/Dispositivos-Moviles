@@ -1,6 +1,10 @@
 .container-headerListProduct{
   margin: 40px 60px;
 }
+.container-listProduct .ant-card{
+  width: 350px !important;
+  border-radius: 18px;
+}
 
 .title-listProduct{
   font-size: 26px;
@@ -12,4 +16,12 @@
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .container-headerListProduct{
+    margin: 40px 30px;
+  }
+
 }

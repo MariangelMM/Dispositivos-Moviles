@@ -1,6 +1,20 @@
 .container-detailProduct{
+    margin: 40px 60px;;
+}
+
+.container-detailProduct-description{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 40%;
     align-items: center;
     margin: 30px;
+    justify-content: center;
+}
+.link-return-products{
+    font-size: 18px;
+    text-decoration: underline !important;
+}
+
+.title-detailProduct{
+    font-size: 26px;
+    font-weight: 500;
 }

@@ -21,3 +21,11 @@
   font-size: 20px;
   background: #00429e;
 }
+
+
+@media screen and (max-width: 600px) {
+  .user_section {
+    margin: 20px 30px 0px 0px;
+  }
+
+}

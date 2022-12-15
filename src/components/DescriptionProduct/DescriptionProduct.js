@@ -1,6 +1,6 @@
 import React from "react";
 import { Descriptions } from "antd";
-
+import "./DescriptionProduct.css"
 
 
 const DescriptionProduct = ({product}) => {
@@ -8,7 +8,7 @@ const DescriptionProduct = ({product}) => {
 
 
   return (
-    <Descriptions layout="horizontal" column={1}>
+    <Descriptions layout="horizontal" column={2} className="container-description-product">
       <Descriptions.Item label="Marca">{product.brand}</Descriptions.Item>
       <Descriptions.Item label="Modelo">{product.model}</Descriptions.Item>
       <Descriptions.Item label="Precio">{product.price}</Descriptions.Item>

@@ -8,10 +8,10 @@ export default function MainFooter() {
     <Footer
       style={{
         textAlign: "center",
-        padding: 10,
+        padding: "130px 10px 10px",
       }}
     >
-      2022
+      Footer, Copyright 2022
     </Footer>
   );
 }

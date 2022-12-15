@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Layout,  Avatar, Badge } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
@@ -9,7 +9,13 @@ const { Header } = Layout;
 
 export default function MainHeader() {
 
-  const productCard = useSelector((state) => state.peticiones.productCard);
+  
+  let productCard = useSelector((state) => state.peticiones.productCard);
+
+
+  localStorage.setItem("totalCart", productCard)
+  productCard = localStorage.getItem("totalCart")
+  
 
   return (
     <Header style={{ padding: 0 }}>

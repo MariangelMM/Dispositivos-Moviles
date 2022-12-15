@@ -12,16 +12,17 @@ export default function DetailProduct() {
   return (
     <>
       {product ? (
-        <>
-          <Link to="/products">Volver a productos</Link>
-
-          <p>Detalle Producto</p>
-          <div className="container-detailProduct">
+        <section className="container-detailProduct">
+          <Link to="/products" className="link-return-products">Volver a productos</Link>
+          <div className="container-detailProduct-description">
             <ImageProduct product={product.imgUrl} />
+            <div>
+            <p className="title-detailProduct">Detalle Producto</p>
             <DescriptionProduct product={product} />
             <ActionsProduct product={product.options} idProduct={product.id} />
+            </div>
           </div>
-        </>
+        </section>
       ) : (
         <p>Cargando Producto</p>
       )}
