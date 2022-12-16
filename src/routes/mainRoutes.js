@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import MainHeader  from "../components/Header/Header";
 import MainFooter from "../components/Footer/Footer";
