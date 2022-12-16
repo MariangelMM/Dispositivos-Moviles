@@ -19,9 +19,11 @@ const MainRoutes = () => (
             
             <div className="site-layout-background">
               <Switch>
+                
                 <Route path={main.path} exact>
                   <Redirect to="/products" />
                 </Route>
+
                 <Route
                   path={main.products.path}
                   exact
