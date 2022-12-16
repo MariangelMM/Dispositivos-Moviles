@@ -10,7 +10,7 @@ const SearchProduct = () => {
   const [filterSearch, setFilterSearch] = useState("");
   const [searchInput, setSearchInput] = useState("");
 
-  const onSearch = (e) => {
+  const onSearch = () => {
     // e.preventDefault();
 
     if (searchInput !== "") {

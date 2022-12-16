@@ -19,8 +19,8 @@ const MainRoutes = () => (
             
             <div className="site-layout-background">
               <Switch>
-                
-                <Route path={main.path} exact>
+
+                <Route path={main.path} exact >
                   <Redirect to="/products" />
                 </Route>
 
@@ -34,10 +34,7 @@ const MainRoutes = () => (
                   component={main.detailProduct.component}
                 />
             
-                <Route
-                  path={main.error404.path}
-                  component={main.error404.component}
-                />
+                <Route path={main.error404.path}  exact>  <Redirect to="/products" /> </Route>
               </Switch>
             </div>
           </Content>
