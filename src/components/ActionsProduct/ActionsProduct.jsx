@@ -21,12 +21,12 @@ const ActionsProduct = ({ product, idProduct }) => {
     setSelectStorage(value);
   };
 
-  const onSumit = (e) => {
+  const onSumit = () => {
     if (product.color.length === 1) {
       setSelectColor(product.color[0].code);
     }
     if (product.storage.length === 1) {
-      setSelectStorage(product.storages[0].code);
+      setSelectStorage(product.storage[0].code);
     }
     const dataProduct = {
       id: idProduct,
@@ -37,11 +37,28 @@ const ActionsProduct = ({ product, idProduct }) => {
     saveData(dataProduct);
   };
 
+
+// const localStorageWithExpiration = (key, value, time) => {
+//   localStorage.setItem(
+//     key,
+//     JSON.stringify({
+//       value,
+//       time
+//     })
+//   )
+// }
+
+
+
   const saveData = (dataProduct) => {
     const viewStorage = localStorage.getItem("totalCart");
+    console.log(viewStorage)
     let totalCart = viewStorage ? JSON.parse(viewStorage) : [...productCard];
     totalCart.push(dataProduct);
     localStorage.setItem("totalCart", JSON.stringify(totalCart));
+
+    // const dataSeconds = Math.round(new Date().getTime() / 1000)
+    // localStorageWithExpiration("totalCart", totalCart, dataSeconds);
     
     dispatch(addProductAction(dataProduct));
   };

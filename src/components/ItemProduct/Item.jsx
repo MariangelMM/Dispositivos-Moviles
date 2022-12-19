@@ -17,7 +17,6 @@ const CardItem = ({ item }) => {
 
   return (
     <>
-     <Link to="/detailProduct" onClick={() => getDetailProduct(item)}>
       <Meta title={item.brand} description={item.model} />
       <p className="link-item">
         <span>Precio: ${item.price}</span>
@@ -26,7 +25,6 @@ const CardItem = ({ item }) => {
           Ver detalle <RightOutlined/>
         </Link>
       </p>
-      </Link>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Layout,  Avatar, Badge } from "antd";
 import { useSelector } from "react-redux";
 import { ShoppingCartOutlined } from "@ant-design/icons";
@@ -9,11 +9,19 @@ const { Header } = Layout;
 
 export default function MainHeader() {
 
-  let productCard = useSelector((state) => state.peticiones.productCard);
+   let productCard = useSelector((state) => state.peticiones.productCard);
+
+   useEffect(() =>{
+    productCard
+   })
 
   let viewStorage = localStorage.getItem("totalCart")
   let statusLocalStorage = JSON.parse(viewStorage) || []
 
+ // Lógica para que la data se elimine del local storage en una hora
+ if (Math.round(new Date().getTime() / 1000) - viewStorage?.time > 60) {
+  window.localStorage.removeItem('totalCart')
+}
 
 
   return (

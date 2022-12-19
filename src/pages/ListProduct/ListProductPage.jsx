@@ -33,7 +33,7 @@ export default function ListProductPage() {
           <HomeOutlined />
         </Breadcrumb.Item>
         <Breadcrumb.Item>
-          <Link href="/products">Productos</Link>
+          <Link to="/products">Productos</Link>
         </Breadcrumb.Item>
       </Breadcrumb>
 

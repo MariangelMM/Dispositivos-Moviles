@@ -1,0 +1,184 @@
+[
+  {
+    "id": "1",
+    "imgUrl":  "https://images.vexels.com/media/users/3/208382/isolated/preview/f25868c7977e679c46ccf94970b97ed9-celular-antigo-plana-by-vexels.png",
+    "brand": "Iphone",
+    "model": "Liquid 1",
+    "price": "16",
+    "cpu": "cpu1",
+    "ram": "4gb",
+    "so": "",
+    "displayResolution": "",
+    "battery": "",
+    "dimentions": "",
+    "weight": "",
+    "primaryCamera": "",
+    "secondaryCmera": "",
+    "options": {
+      "color": [
+        {
+          "code": "1",
+          "name": "black"
+        },
+        {
+          "code": "2",
+          "name": "white"
+        }
+        
+        
+      ],
+      "storage": [
+        {
+          "code": "1",
+          "name": "16GB"
+        },
+        {
+          "code": "2",
+          "name": "32GB"
+        }
+      ]
+    }
+  },
+  {
+    "id": "2",
+    "imgUrl":  "https://images.vexels.com/media/users/3/208382/isolated/preview/f25868c7977e679c46ccf94970b97ed9-celular-antigo-plana-by-vexels.png",
+    "brand": "Xiaomi",
+    "model": "Liquid 2",
+    "price": "16",
+    "cpu": "",
+    "ram": "",
+    "so": "",
+    "displayResolution": "",
+    "battery": "",
+    "dimentions": "",
+    "weight": "",
+    "primaryCamera": "",
+    "secondaryCmera": "",
+    "options": {
+      "color": [
+        {
+          "code": "1",
+          "name": "blue"
+        },
+        {
+          "code": "2",
+          "name": "yellow"
+        }
+        
+        
+      ],
+      "storage": [
+        {
+          "code": "1",
+          "name": "16GB"
+        },
+        {
+          "code": "2",
+          "name": "32GB"
+        }
+      ]
+    }
+  },
+  {
+    "id": "3",
+    "imgUrl":  "https://images.vexels.com/media/users/3/208382/isolated/preview/f25868c7977e679c46ccf94970b97ed9-celular-antigo-plana-by-vexels.png",
+    "brand": "motorola",
+    "model": "Liquid 3",
+    "price": "16",
+    "cpu": "1.5 Ghz Mediatek Helio g96",
+    "ram": "4GB",
+    "so": "Android",
+    "displayResolution": "",
+    "battery": "",
+    "dimentions": "25X25",
+    "weight": "250g",
+    "primaryCamera": ["Samsung 10Mp", "CMOS Sony 2Mp"],
+    "secondaryCmera": "",
+    "options": {
+      "color": [
+        {
+          "code": "1",
+          "name": "black"
+        }
+      ],
+      "storage": [
+        {
+          "code": "1",
+          "name": "16GB"
+        },
+        {
+            "code": "2",
+            "name": "32GB"
+        }
+      ]
+    }
+  },
+  {
+    "id": "4",
+    "imgUrl":  "https://images.vexels.com/media/users/3/208382/isolated/preview/f25868c7977e679c46ccf94970b97ed9-celular-antigo-plana-by-vexels.png",
+    "brand": "Acer",
+    "model": "Liquid 4",
+    "price": "16",
+    "cpu": "",
+    "ram": "",
+    "so": "",
+    "displayResolution": "",
+    "battery": "",
+    "dimentions": "",
+    "weight": "",
+    "primaryCamera": "",
+    "secondaryCmera": "",
+    "options": {
+      "color": [
+        {
+          "code": "1",
+          "name": "white"
+        },
+        {
+            "code": "2",
+            "name": "black"
+        }
+      ],
+      "storage": [
+        {
+          "code": "1",
+          "name": "16GB"
+        }
+      ]
+    }
+  },
+  {
+    "id": "5",
+    "imgUrl":  "https://images.vexels.com/media/users/3/208382/isolated/preview/f25868c7977e679c46ccf94970b97ed9-celular-antigo-plana-by-vexels.png",
+    "brand": "Acer",
+    "model": "Liquid 5",
+    "price": "16",
+    "cpu": "",
+    "ram": "",
+    "so": "",
+    "displayResolution": "",
+    "battery": "",
+    "dimentions": "",
+    "weight": "",
+    "primaryCamera": "",
+    "secondaryCmera": "",
+    "options": {
+      "color": [
+        {
+          "code": "1",
+          "name": "white"
+        },
+        {
+            "code": "2",
+            "name": "black"
+        }
+      ],
+      "storage": [
+        {
+          "code": "1",
+          "name": "16GB"
+        }
+      ]
+    }
+  }
+]
