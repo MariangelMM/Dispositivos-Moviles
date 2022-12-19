@@ -11,17 +11,24 @@ export default function MainHeader() {
 
    let productCard = useSelector((state) => state.peticiones.productCard);
 
-   useEffect(() =>{
-    productCard
-   })
+ 
 
   let viewStorage = localStorage.getItem("totalCart")
   let statusLocalStorage = JSON.parse(viewStorage) || []
 
- // Lógica para que la data se elimine del local storage en una hora
- if (Math.round(new Date().getTime() / 1000) - viewStorage?.time > 60) {
-  window.localStorage.removeItem('totalCart')
-}
+  let timeStorage = localStorage.getItem("timeTotalCart")
+
+  useEffect(() =>{
+     productCard
+
+    if (Math.round(new Date().getTime() / 1000) - timeStorage > 3600) {
+      window.localStorage.removeItem('totalCart')
+      window.localStorage.removeItem('timeTotalCart')
+      statusLocalStorage = []
+    }
+
+   }, [timeStorage])
+
 
 
   return (
@@ -31,7 +38,7 @@ export default function MainHeader() {
         <img src={logo} alt="logo" />
         </Link>
         <div>
-          <Badge count={statusLocalStorage? statusLocalStorage.length:0}>
+          <Badge count={statusLocalStorage? statusLocalStorage.length : 0}>
             <Avatar icon={<ShoppingCartOutlined />} className="avatar-item" />
           </Badge>
           <span> Usuario</span> 

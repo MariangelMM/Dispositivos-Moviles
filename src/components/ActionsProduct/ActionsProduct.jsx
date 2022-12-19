@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Select, Button } from "antd";
 import { addProductAction } from "../../stateManagement/actions/peticionesAction";
@@ -13,6 +13,15 @@ const ActionsProduct = ({ product, idProduct }) => {
   const [selectColor, setSelectColor] = useState();
   const [selectStorage, setSelectStorage] = useState();
 
+  useEffect(() => {
+    if (product.color.length < 2) {
+      setSelectColor(product.color[0].code);
+    }
+    if (product.storage.length < 2) {
+      setSelectStorage(product.storage[0].code);
+    }
+  });
+
   const handleChangeColor = (value) => {
     setSelectColor(value);
   };
@@ -22,12 +31,6 @@ const ActionsProduct = ({ product, idProduct }) => {
   };
 
   const onSumit = () => {
-    if (product.color.length === 1) {
-      setSelectColor(product.color[0].code);
-    }
-    if (product.storage.length === 1) {
-      setSelectStorage(product.storage[0].code);
-    }
     const dataProduct = {
       id: idProduct,
       codeColor: selectColor,
@@ -37,29 +40,16 @@ const ActionsProduct = ({ product, idProduct }) => {
     saveData(dataProduct);
   };
 
-
-// const localStorageWithExpiration = (key, value, time) => {
-//   localStorage.setItem(
-//     key,
-//     JSON.stringify({
-//       value,
-//       time
-//     })
-//   )
-// }
-
-
-
   const saveData = (dataProduct) => {
     const viewStorage = localStorage.getItem("totalCart");
-    console.log(viewStorage)
+
     let totalCart = viewStorage ? JSON.parse(viewStorage) : [...productCard];
     totalCart.push(dataProduct);
-    localStorage.setItem("totalCart", JSON.stringify(totalCart));
 
-    // const dataSeconds = Math.round(new Date().getTime() / 1000)
-    // localStorageWithExpiration("totalCart", totalCart, dataSeconds);
-    
+    localStorage.setItem("totalCart", JSON.stringify(totalCart));
+    const dataTime = Math.round(new Date().getTime() / 1000);
+    localStorage.setItem("timeTotalCart", JSON.stringify(dataTime));
+
     dispatch(addProductAction(dataProduct));
   };
   return (
@@ -115,7 +105,9 @@ const ActionsProduct = ({ product, idProduct }) => {
             </Select>
           </div>
         </div>
-        <Button type="primary" onClick={(e) => onSumit(e)}>Añadir</Button>
+        <Button type="primary" onClick={() => onSumit()}>
+          Añadir
+        </Button>
       </section>
     </>
   );
