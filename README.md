@@ -8,6 +8,7 @@
 - Clonar el repositorio
 - npm install: Para instalar las node modules
 - npm start: Para levantar el proyecto
+- npm test: Para testing 
 
 ## Estructura
 
