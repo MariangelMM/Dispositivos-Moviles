@@ -2,24 +2,39 @@ import React from "react";
 
 import "./App.css";
 
-import Routing from './routes';
-
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Navigate,
+  MemoryRouter,
+} from "react-router-dom";
 import { Layout } from "antd";
 
-import { Provider } from 'react-redux';
-import store from './stateManagement/store';
+import { Provider } from "react-redux";
+import store from "./stateManagement/store";
+import { ListProductPage, DetailProduct } from "./pages";
+import MainHeader from "./components/Header/Header";
+import MainFooter from "./components/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
       <Layout>
-        <Router>
-          <Provider store={store} >
-            <Routing />
+        <BrowserRouter>
+          <Provider store={store}>
+            <MemoryRouter>
+              <MainHeader />
+              <Routes>
+                <Route path="/" element={<Navigate to="/products" />} />
+                <Route path="/products" element={<ListProductPage />} />
+                <Route path={`detailproduct`} element={<DetailProduct />} />
+                <Route path="*" element={<Navigate to="/products" />} />
+              </Routes>
+              <MainFooter />
+            </MemoryRouter>
           </Provider>
-        </Router>
+        </BrowserRouter>
       </Layout>
     </div>
   );

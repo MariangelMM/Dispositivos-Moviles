@@ -6,6 +6,7 @@
   margin: 40px 60px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .container-listProduct .ant-card {
   width: 320px !important;

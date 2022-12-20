@@ -8,11 +8,10 @@ module.exports = {
         "eslint:recommended",
         "plugin:react/recommended"
     ],
+    "overrides": [
+    ],
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
+        "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "plugins": [
@@ -21,4 +20,4 @@ module.exports = {
     "rules": {
         'react/prop-types': 0
       }
-};
+}
