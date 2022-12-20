@@ -7,7 +7,7 @@ import {
   Route,
   Routes,
   Navigate,
-  MemoryRouter,
+  
 } from "react-router-dom";
 import { Layout } from "antd";
 
@@ -18,12 +18,13 @@ import MainHeader from "./components/Header/Header";
 import MainFooter from "./components/Footer/Footer";
 
 function App() {
+  
   return (
     <div className="App">
       <Layout>
         <BrowserRouter>
           <Provider store={store}>
-            <MemoryRouter>
+          
               <MainHeader />
               <Routes>
                 <Route path="/" element={<Navigate to="/products" />} />
@@ -32,7 +33,7 @@ function App() {
                 <Route path="*" element={<Navigate to="/products" />} />
               </Routes>
               <MainFooter />
-            </MemoryRouter>
+            
           </Provider>
         </BrowserRouter>
       </Layout>
