@@ -3,42 +3,78 @@ import { useDispatch, useSelector } from "react-redux";
 import { setListProductAction } from "../../stateManagement/actions/peticionesAction";
 import { Input, Button } from "antd";
 import "./SearchProduct.css";
+import { listProductAction } from "../../stateManagement/actions/peticionesAction";
 
-const SearchProduct = ({setTextSearch}) => {
+
+
+
+
+
+
+
+const SearchProduct = ({ setTextSearch }) => {
   const dispatch = useDispatch();
-  const productList = useSelector((state) => state.peticiones.products);
-  const [filterSearch, setFilterSearch] = useState("");
-  
+
+  let viewStorage = localStorage.getItem("totalListaProductos");
+  let statusLocalStorage = JSON.parse(viewStorage);
+
+
+
+  const listData = useSelector((state) => state.peticiones.products);
+
+  if (!statusLocalStorage) {
+    dispatch(listProductAction());
+  }
+  if (statusLocalStorage === null && listData.length > 0) {
+
+    const item = {
+      expiry: Math.round(new Date().getTime() / 1000),
+      pokemon: listData,
+    };
+
+    localStorage.setItem("totalListaProductos", JSON.stringify(item));
+    console.log(item)
+
+    dispatch(setListProductAction(item.pokemon));
+  }
+
+
+
+
+  const [filterSearch, setFilterSearch] = useState();
+
   const onSearch = (e) => {
-    let searchInput = e.target.value
+    let searchInput = e.target.value;
 
     if (searchInput !== "") {
-      const data = productList.filter(
+      const data = statusLocalStorage?.pokemon.filter(
         (ele) =>
           ele.brand.toUpperCase().includes(searchInput.toUpperCase()) ||
           ele.model.toUpperCase().includes(searchInput.toUpperCase())
       );
-      if(data.length > 0){
-        setTextSearch(true)
+
+      if (data.length > 0) {
+        setTextSearch(true);
         setFilterSearch(data);
-      }
-      else{
+      } else {
         setFilterSearch(data);
-        setTextSearch(false)
+        setTextSearch(false);
       }
-     
     } else {
-      setFilterSearch(productList);
-      setTextSearch(true)
+      setFilterSearch(statusLocalStorage?.pokemon);
+      setTextSearch(true);
     }
   };
 
+  useEffect(() => {
+    if (statusLocalStorage && !filterSearch) {
+      setFilterSearch(statusLocalStorage?.pokemon);
+    }
 
-  useEffect(()=>{
     if (filterSearch) {
       dispatch(setListProductAction(filterSearch));
     }
-  }, [filterSearch, dispatch])
+  }, [filterSearch, dispatch]);
 
   return (
     <div className="container-search-producto">

@@ -67,12 +67,12 @@ const setlistProductSuccess = (filterSearch) => ({
 
 
 
-export function detailProductAction(product) {
+export function detailProductAction(id) {
   return async (dispatch) => {
     dispatch(detailProduct());
 
     try {
-      const response = await getDetailProduct(product.id);
+      const response = await getDetailProduct(id);
       dispatch(detailProductSuccess(response));
     } catch (error) {
       message.error("Error al tratar de obtener producto!");
@@ -84,7 +84,7 @@ const detailProduct = () => ({
   type: GET_DETAIL_PRODUCT,
 });
 
-const detailProductSuccess = (product) => ({
+export const detailProductSuccess = (product) => ({
   type: GET_DETAIL_PRODUCT_SUCCESS,
   payload: product,
 });
