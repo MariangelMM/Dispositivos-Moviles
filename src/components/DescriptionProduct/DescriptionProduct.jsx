@@ -16,22 +16,22 @@ const DescriptionProduct = ({ product }) => {
           <div>Precio: {product.price}</div>
         </Col>
       </Row>
-      <br/>
+      <br />
       <Row gutter={16}>
-        <Col className="gutter-row" span={8}>
-          <div>CPU: {product.cpu}</div>
-        </Col>
         <Col className="gutter-row" span={8}>
           <div>CPU: {product.cpu}</div>
         </Col>
         <Col className="gutter-row" span={8}>
           <div>RAM: {product.ram}</div>
         </Col>
-      </Row>
-      <br/>
-      <Row gutter={16}>
         <Col className="gutter-row" span={8}>
           <div>Sistema Operativo: {product.so}</div>
+        </Col>
+      </Row>
+      <br />
+      <Row gutter={16}>
+        <Col className="gutter-row" span={8}>
+          <div>Resolución de Pantalla: {product.displayResolution}</div>
         </Col>
         <Col className="gutter-row" span={8}>
           <div>Bateria: {product.battery}</div>
@@ -43,7 +43,7 @@ const DescriptionProduct = ({ product }) => {
           </div>
         </Col>
       </Row>
-      <br/>
+      <br />
       <Row gutter={16}>
         <Col className="gutter-row" span={8}>
           <div>Dimensiones: {product.dimentions}</div>
