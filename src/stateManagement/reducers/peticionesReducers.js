@@ -14,7 +14,6 @@ const initialState = {
   products: [],
   detailProduct: {},
   productCard: [],
-  productSearch: [],
   listProductSearch: [],
   totalProduct: [],
 };
@@ -34,7 +33,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         products: action.payload,
-        productSearch: action.payload
       };
 
     case GET_DETAIL_PRODUCT_SUCCESS:

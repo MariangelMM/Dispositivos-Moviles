@@ -4,14 +4,13 @@ import { setListProductAction } from "../../stateManagement/actions/peticionesAc
 import { Input, Button } from "antd";
 import "./SearchProduct.css";
 
-const SearchProduct = () => {
+const SearchProduct = ({setTextSearch}) => {
   const dispatch = useDispatch();
-  const productList = useSelector((state) => state.peticiones.productSearch);
+  const productList = useSelector((state) => state.peticiones.products);
   const [filterSearch, setFilterSearch] = useState("");
-  const [searchInput, setSearchInput] = useState("");
-
-  const onSearch = () => {
-    // e.preventDefault();
+  
+  const onSearch = (e) => {
+    let searchInput = e.target.value
 
     if (searchInput !== "") {
       const data = productList.filter(
@@ -19,9 +18,18 @@ const SearchProduct = () => {
           ele.brand.toUpperCase().includes(searchInput.toUpperCase()) ||
           ele.model.toUpperCase().includes(searchInput.toUpperCase())
       );
-      setFilterSearch(data);
+      if(data.length > 0){
+        setTextSearch(true)
+        setFilterSearch(data);
+      }
+      else{
+        setFilterSearch(data);
+        setTextSearch(false)
+      }
+     
     } else {
       setFilterSearch(productList);
+      setTextSearch(true)
     }
   };
 
@@ -38,9 +46,9 @@ const SearchProduct = () => {
         maxLength={16}
         className="input-search"
         placeholder="Buscar su producto"
-        onChange={(e) => setSearchInput(e.target.value)}
+        onChange={(e) => onSearch(e)}
       />
-      <Button onClick={(e) => onSearch(e)}>Buscar </Button>
+      <Button onClick={() => onSearch()}>Buscar </Button>
     </div>
   );
 };

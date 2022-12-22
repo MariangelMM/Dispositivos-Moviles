@@ -4,8 +4,6 @@ import ImageProduct from "../../components/ImageProduct/ImageProduct";
 import ActionsProduct from "../../components/ActionsProduct/ActionsProduct";
 import "./DetailProduct.css";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { ArrowLeftOutlined } from "@ant-design/icons";
 
 import { Breadcrumb } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
@@ -27,10 +25,6 @@ export default function DetailProduct() {
 
       {product ? (
         <section className="container-detailProduct">
-          <Link to="/products" className="link-return-products">
-            {" "}
-            <ArrowLeftOutlined /> Volver a productos
-          </Link>
           <div className="container-detailProduct-description">
             <ImageProduct product={product.imgUrl} />
             <div>

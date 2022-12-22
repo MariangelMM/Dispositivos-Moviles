@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./listProductPage.css";
 import CardItem from "../../components/ItemProduct/Item";
@@ -26,6 +26,8 @@ export default function ListProductPage() {
     getProductsList();
   });
 
+  const [textSearch, setTextSearch]= useState(true)
+
   return (
     <section>
       <Breadcrumb className="container-breadcrumb">
@@ -39,10 +41,10 @@ export default function ListProductPage() {
 
       <div className="container-headerListProduct">
         <h1 className="title-listProduct">Listado de productos</h1>
-        <SearchProduct />
+        <SearchProduct setTextSearch={setTextSearch}/>
       </div>
 
-      {listDataSearch.length < 1 ? (
+      {listDataSearch.length < 1 ? textSearch ? 
         <div className="container-listProduct">
           {listData.map((item) => {
             return (
@@ -58,8 +60,8 @@ export default function ListProductPage() {
               </Card>
             );
           })}
-        </div>
-      ) : (
+        </div> : <p className="text-Search">Producto no encontrado</p>
+       : (
         <div className="container-listProduct">
           {listDataSearch.map((item) => {
             return (
