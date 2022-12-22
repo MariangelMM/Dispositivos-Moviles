@@ -6,18 +6,11 @@ import "./SearchProduct.css";
 import { listProductAction } from "../../stateManagement/actions/peticionesAction";
 
 
-
-
-
-
-
-
 const SearchProduct = ({ setTextSearch }) => {
   const dispatch = useDispatch();
 
   let viewStorage = localStorage.getItem("totalListaProductos");
   let statusLocalStorage = JSON.parse(viewStorage);
-
 
 
   const listData = useSelector((state) => state.peticiones.products);
@@ -33,7 +26,7 @@ const SearchProduct = ({ setTextSearch }) => {
     };
 
     localStorage.setItem("totalListaProductos", JSON.stringify(item));
-    console.log(item)
+
 
     dispatch(setListProductAction(item.pokemon));
   }
@@ -75,6 +68,14 @@ const SearchProduct = ({ setTextSearch }) => {
       dispatch(setListProductAction(filterSearch));
     }
   }, [filterSearch, dispatch]);
+
+  useEffect(() =>{
+   if (Math.round(new Date().getTime() / 1000) - statusLocalStorage.expiry > 3600) {
+     window.localStorage.removeItem('totalListaProductos')
+   }
+  }, [])
+
+
 
   return (
     <div className="container-search-producto">

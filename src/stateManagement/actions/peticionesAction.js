@@ -97,7 +97,7 @@ export function addProductAction(dataProduct) {
       const response = await postAddProduct(dataProduct);
       dispatch(addProductSuccess(response));
     } catch (error) {
-      message.error("Seleccione color y almacenamiento");
+      dispatch(addProductSuccess(dataProduct))
     }
   };
 }
@@ -106,7 +106,7 @@ const addProduct = () => ({
   type: POST_ADD_PRODUCT,
 });
 
-const addProductSuccess = (product) => ({
+export const addProductSuccess = (product) => ({
   type: POST_ADD_PRODUCT_SUCCESS,
   payload: product,
 });

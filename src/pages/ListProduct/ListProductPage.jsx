@@ -18,12 +18,12 @@ export default function ListProductPage() {
 
   return (
     <section>
-      <Breadcrumb className="container-breadcrumb">
+       <Breadcrumb className="container-breadcrumb">
         <Breadcrumb.Item>
           <HomeOutlined />
         </Breadcrumb.Item>
         <Breadcrumb.Item>
-          <Link to="/products">Productos</Link>
+        <Link to="/products">Productos</Link>
         </Breadcrumb.Item>
       </Breadcrumb>
 

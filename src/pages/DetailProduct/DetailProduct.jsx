@@ -4,7 +4,7 @@ import ImageProduct from "../../components/ImageProduct/ImageProduct";
 import ActionsProduct from "../../components/ActionsProduct/ActionsProduct";
 import "./DetailProduct.css";
 import { useSelector } from "react-redux";
-
+import { Link } from "react-router-dom";
 import { Breadcrumb } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
 
@@ -17,9 +17,13 @@ export default function DetailProduct() {
         <Breadcrumb.Item>
           <HomeOutlined />
         </Breadcrumb.Item>
-        <Breadcrumb.Item href="/products">Productos</Breadcrumb.Item>
-        <Breadcrumb.Item href="/detailProduct">
+        <Breadcrumb.Item>
+        <Link to="/products">Productos</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>
+        <Link to="/detailProduct">
           Detalle Producto
+        </Link>
         </Breadcrumb.Item>
       </Breadcrumb>
 

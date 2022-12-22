@@ -41,6 +41,8 @@ const ActionsProduct = ({ product, idProduct }) => {
   };
 
   const saveData = (dataProduct) => {
+
+   
     const viewStorage = localStorage.getItem("totalCart");
 
     let totalCart = viewStorage ? JSON.parse(viewStorage) : [...productCard];
@@ -50,7 +52,9 @@ const ActionsProduct = ({ product, idProduct }) => {
     const dataTime = Math.round(new Date().getTime() / 1000);
     localStorage.setItem("timeTotalCart", JSON.stringify(dataTime));
 
-    dispatch(addProductAction(dataProduct));
+  dispatch(addProductAction(dataProduct))
+
+
   };
   return (
     <>
