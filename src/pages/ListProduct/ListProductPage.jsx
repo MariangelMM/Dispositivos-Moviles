@@ -33,7 +33,7 @@ export default function ListProductPage() {
       </div>
 
       {listDataSearch?.length < 1 ? textSearch ? 
-        <p>Cargando...</p> : <p className="text-Search">Producto no encontrado</p>
+        <p className="text-Search">Cargando...</p> : <p className="text-Search">Producto no encontrado</p>
        : (
         <div className="container-listProduct">
           {listDataSearch?.map((item) => {

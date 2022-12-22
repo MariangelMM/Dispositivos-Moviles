@@ -70,7 +70,7 @@ const SearchProduct = ({ setTextSearch }) => {
   }, [filterSearch, dispatch]);
 
   useEffect(() =>{
-   if (Math.round(new Date().getTime() / 1000) - statusLocalStorage.expiry > 3600) {
+   if (Math.round(new Date().getTime() / 1000) - statusLocalStorage?.expiry > 3600) {
      window.localStorage.removeItem('totalListaProductos')
    }
   }, [])
