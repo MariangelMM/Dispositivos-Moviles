@@ -22,13 +22,13 @@ const SearchProduct = ({ setTextSearch }) => {
 
     const item = {
       expiry: Math.round(new Date().getTime() / 1000),
-      pokemon: listData,
+      products: listData,
     };
 
     localStorage.setItem("totalListaProductos", JSON.stringify(item));
 
 
-    dispatch(setListProductAction(item.pokemon));
+    dispatch(setListProductAction(item.products));
   }
 
 
@@ -40,7 +40,7 @@ const SearchProduct = ({ setTextSearch }) => {
     let searchInput = e.target.value;
 
     if (searchInput !== "") {
-      const data = statusLocalStorage?.pokemon.filter(
+      const data = statusLocalStorage?.products.filter(
         (ele) =>
           ele.brand.toUpperCase().includes(searchInput.toUpperCase()) ||
           ele.model.toUpperCase().includes(searchInput.toUpperCase())
@@ -54,14 +54,14 @@ const SearchProduct = ({ setTextSearch }) => {
         setTextSearch(false);
       }
     } else {
-      setFilterSearch(statusLocalStorage?.pokemon);
+      setFilterSearch(statusLocalStorage?.products);
       setTextSearch(true);
     }
   };
 
   useEffect(() => {
     if (statusLocalStorage && !filterSearch) {
-      setFilterSearch(statusLocalStorage?.pokemon);
+      setFilterSearch(statusLocalStorage?.products);
     }
 
     if (filterSearch) {

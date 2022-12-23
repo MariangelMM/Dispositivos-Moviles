@@ -18,7 +18,7 @@ const CardItem = ({ item }) => {
   const getDetailProduct = (product) => {
 
 
-    const data = statusLocalStorage?.pokemon.filter(
+    const data = statusLocalStorage?.products.filter(
       (ele) =>
         ele.id === product.id
     );
