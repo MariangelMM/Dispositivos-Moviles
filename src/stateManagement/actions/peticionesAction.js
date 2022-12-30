@@ -97,7 +97,7 @@ export function addProductAction(dataProduct) {
       const response = await postAddProduct(dataProduct);
       dispatch(addProductSuccess(response));
     } catch (error) {
-      dispatch(addProductSuccess(dataProduct))
+      message.error("Error al guardar el producto!");
     }
   };
 }
