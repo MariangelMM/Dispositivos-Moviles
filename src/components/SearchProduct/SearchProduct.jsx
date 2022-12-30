@@ -15,6 +15,8 @@ const SearchProduct = ({ setTextSearch }) => {
 
   const listData = useSelector((state) => state.peticiones.products);
 
+  useEffect(() => {
+
   if (!statusLocalStorage) {
     dispatch(listProductAction());
   }
@@ -31,12 +33,12 @@ const SearchProduct = ({ setTextSearch }) => {
     dispatch(setListProductAction(item.products));
   }
 
-
-
+}, [dispatch, statusLocalStorage, listData])
 
   const [filterSearch, setFilterSearch] = useState();
 
   const onSearch = (e) => {
+
     let searchInput = e.target.value;
 
     if (searchInput !== "") {
@@ -61,6 +63,7 @@ const SearchProduct = ({ setTextSearch }) => {
 
   useEffect(() => {
     if (statusLocalStorage && !filterSearch) {
+      
       setFilterSearch(statusLocalStorage?.products);
     }
 
@@ -68,7 +71,7 @@ const SearchProduct = ({ setTextSearch }) => {
       dispatch(setListProductAction(filterSearch));
     }
   }, [filterSearch, dispatch]);
-
+ 
   useEffect(() =>{
    if (Math.round(new Date().getTime() / 1000) - statusLocalStorage?.expiry > 3600) {
      window.localStorage.removeItem('totalListaProductos')

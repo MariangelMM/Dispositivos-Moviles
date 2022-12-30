@@ -3,31 +3,29 @@ import { useDispatch } from "react-redux";
 import { RightOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import "./Item.css";
-import { detailProductAction, detailProductSuccess } from "../../stateManagement/actions/peticionesAction";
+import {
+  detailProductAction,
+  detailProductSuccess,
+} from "../../stateManagement/actions/peticionesAction";
 import { Card } from "antd";
 
 const { Meta } = Card;
 
 const CardItem = ({ item }) => {
-
+  
   let viewStorage = localStorage.getItem("totalListaProductos");
   let statusLocalStorage = JSON.parse(viewStorage);
 
   const dispatch = useDispatch();
 
   const getDetailProduct = (product) => {
-
-
     const data = statusLocalStorage?.products.filter(
-      (ele) =>
-        ele.id === product.id
+      (ele) => ele.id === product.id
     );
-
-    
-    if(data){
-    dispatch(detailProductSuccess(data));
-    }else {
-    dispatch(detailProductAction(product));
+    if (data) {
+      dispatch(detailProductSuccess(data));
+    } else {
+      dispatch(detailProductAction(product));
     }
   };
 
@@ -38,7 +36,7 @@ const CardItem = ({ item }) => {
         <span>Precio: ${item.price}</span>
 
         <Link to="/detailProduct" onClick={() => getDetailProduct(item)}>
-          Ver detalle <RightOutlined/>
+          Ver detalle <RightOutlined />
         </Link>
       </p>
     </>
