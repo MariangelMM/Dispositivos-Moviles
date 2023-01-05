@@ -8,7 +8,12 @@
 - Clonar el repositorio
 - npm install: Para instalar las node modules
 - npm start: Para levantar el proyecto
-- npm test: Para testing 
+- npm test: Para testing
+- npm eslint: Para ejecutar el eslint
+
+## Arranque del servidor:
+
+- Para levantar el servidor, debe copiar el archivo server en otra carpeta, abrir en el editor de codigo y levantarlo en otra terminal con npm start.
 
 ## Estructura
 

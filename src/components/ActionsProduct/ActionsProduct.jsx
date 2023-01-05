@@ -37,12 +37,12 @@ const ActionsProduct = ({ product, idProduct }) => {
       codeStorage: selectStorage,
     };
 
-    saveData(dataProduct);
+    if (selectColor && selectStorage) {
+      saveData(dataProduct);
+    }
   };
 
   const saveData = (dataProduct) => {
-
-   
     const viewStorage = localStorage.getItem("totalCart");
 
     let totalCart = viewStorage ? JSON.parse(viewStorage) : [...productCard];
@@ -52,10 +52,9 @@ const ActionsProduct = ({ product, idProduct }) => {
     const dataTime = Math.round(new Date().getTime() / 1000);
     localStorage.setItem("timeTotalCart", JSON.stringify(dataTime));
 
-  dispatch(addProductAction(dataProduct))
-
-
+    dispatch(addProductAction(dataProduct));
   };
+
   return (
     <>
       <section className="container-actions-product">
