@@ -9,7 +9,8 @@
 - npm install: Para instalar las node modules
 - npm start: Para levantar el proyecto
 - npm test: Para testing
-- npm eslint: Para ejecutar el eslint
+- npm eslint: Para ejecutar el ESLint
+- npm build: Despliegue
 
 ## Arranque del servidor:
 

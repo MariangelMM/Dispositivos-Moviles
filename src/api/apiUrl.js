@@ -1,8 +1,9 @@
 
 import axios from "axios";
 
-//url de la api
-const uri = 'http://localhost:3001'
+//Lectura de la variable de entorno
+const uri = process.env.REACT_APP_BASE_URL
+
 
 export const getListProduct = ( ) => {
   return axios.get( `${uri}/api/product` ).then( response => response.data );
